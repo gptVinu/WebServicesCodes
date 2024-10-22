@@ -1,3 +1,4 @@
+===================================================EvenOdd_Checker=========================================
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,3 +44,52 @@ namespace myConsoleProgram
         }
     }
 }
+=====================================================EvenOdd_Checker================================================
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyUiPage.aspx.cs" Inherits="myWebApp.MyUiPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <h1>Check the number is Even/Odd </h1>
+            
+            Enter the number : 
+            <asp:TextBox ID="myNum" runat="server"></asp:TextBox>
+            <asp:Button ID="btn" Text="Check" runat="server" OnClick="myFuction" />
+        </div>
+        <asp:Label Id="myLabel" Text="Result will appear here..." runat="server" />
+    </form>
+</body>
+</html>
+-----------------------------------------------myfunction--------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using myWebApp.localhost;
+
+namespace myWebApp
+{
+    public partial class MyUiPage : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void myFuction(object sender, EventArgs e)
+        {
+            WebService1 myService1 = new WebService1();
+            int number = int.Parse(myNum.Text);
+            myLabel.Text = myService1.EvenOdd(number);
+        }
+    }
+}
+===========================================
