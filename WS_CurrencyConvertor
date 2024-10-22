@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Web;
+using System.Web.Services;
+
+namespace myWebService
+{
+    public class WebService1 : System.Web.Services.WebService
+    {
+        const decimal INRtoDollar_rate = 84.95M;
+        const decimal DollarToINR_rate  = 1/INRtoDollar_rate;
+
+        [WebMethod]
+        public decimal Convert_INRtoDollar(decimal amount)
+        {
+            return amount*INRtoDollar_rate;
+        }
+        [WebMethod]
+        public decimal Convert_DollarToINR(decimal amount)
+        {
+            return amount * DollarToINR_rate;
+        }
+    }
+}
