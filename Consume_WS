@@ -120,4 +120,25 @@ elif choice == 4:
 else:
     print("Invalid choice. Please enter a number between 1 and 4.")
 
-================================================()====================================================
+================================================(Consume_PythonoWebService in python)====================================================
+#python program to consume the python web service itself
+import requests
+
+def convert_to_fahrenheit(celcius):
+    response = requests.get(f"http://127.0.0.1:5000/to_Fahrenheit?celcius={celcius}")
+    return response.json()
+
+def convert_to_celcius(fahrenheit):
+    response = requests.get(f"http://127.0.0.1:5000/to_Celsius?fahrenheit={fahrenheit}")
+    return response.json()
+
+
+c_value = 25
+f_value = 88
+
+print("Convert degree celsius to fahrenheit...")
+print(convert_to_fahrenheit(c_value))
+
+print("Convert degree fahrenheit to celcius...")
+print(convert_to_celcius(f_value))
+===================================================()===============================================================
