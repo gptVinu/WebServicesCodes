@@ -102,4 +102,28 @@ namespace myPractical3A
         }
     }
 }
+=============================================pythonWeb_Service================================================
+#creating a web service in the python
+from flask import Flask,request,jsonify
+
+app = Flask(__name__)
+
+@app.route('/toFahrenheit')
+def to_Fahrenheit():
+    celsius = float(request.args.get('celsius'))
+    fahrenheit = (celsius*9/5) + 32
+    return jsonify({"Celsius":celsius,"Fahrenheit":fahrenheit})
+
+@app.route('/toCelsius')
+def to_Celsius():
+    fahrenheit = float(request.args.get('fahrenheit'))
+    celsius = (fahrenheit - 32)*5/9
+    return jasonify({"Fahrenheit":fahrenheit,"Celsius":celsius})
+
+#run the web service
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+    
 
