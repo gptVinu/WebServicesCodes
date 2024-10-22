@@ -92,4 +92,32 @@ namespace myWebApp
         }
     }
 }
-===========================================
+================================================(.NET-->Python)_calculator====================================================
+from zeep import Client
+
+webURL = "http://localhost:53244/WebService1.asmx?WSDL"
+client = Client(wsdl=webURL)
+
+num1 = float(input("Enter the 1st number : "))
+num2 = float(input("Enter the 2nd number : "))
+
+print("Basic mathematical operation...")
+print("1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n")
+choice = int(input("Enter the option: "))
+
+if choice == 1:
+    res = client.service.add(num1, num2)
+    print("Addition result is:", res)
+elif choice == 2:
+    res = client.service.sub(num1, num2)
+    print("Subtraction result is:", res)
+elif choice == 3:
+    res = client.service.mul(num1, num2)
+    print("Multiplication result is:", res)
+elif choice == 4:
+    res = client.service.div(num1, num2)
+    print("Division result is:", res)
+else:
+    print("Invalid choice. Please enter a number between 1 and 4.")
+
+================================================()====================================================
