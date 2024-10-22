@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using myConsoleProgram.localhost; // {project_name + added_serviceReference_name}
+
+namespace myConsoleProgram
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            WebService1 convertor = new WebService1();   //[Creating objects of created webService class name]
+
+            Console.WriteLine("Choose an option...");
+            Console.WriteLine("1. Rupees to Dollar");
+            Console.WriteLine("2. Dollar to Rupees");
+
+            Console.Write("==> ");
+            int choice = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            switch (choice)
+            {
+                case 1:
+                    Console.Write("Enter the amount : ");
+                    decimal INR_amount = decimal.Parse(Console.ReadLine());
+                    decimal f_amount = convertor.Convert_INRtoDollar(INR_amount);     // [webService objectName.createdMethod in WS]
+                    Console.WriteLine($"The result is : {f_amount}");
+                    break;
+
+                case 2:
+                    Console.Write("Enter the dollar amount : ");
+                    decimal Dollar_amount = decimal.Parse(Console.ReadLine());
+                    decimal f_amount2 = convertor.Convert_DollarToINR(Dollar_amount);     //[webService objectName.createdMethod in WS]
+                    Console.WriteLine($"The result is here : {f_amount2}");
+                    break;
+                default:
+                    Console.WriteLine("Choose an correct option!!!");
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
